@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Diary Tourism – Northeast India</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #2d6a2d;
+  --green-light: #3d8b3d;
+  --green-pale: #eaf4ea;
+  --gold: #c8922a;
+  --gold-light: #e0a83a;
+  --navy: #1a2744;
+  --navy-mid: #253660;
+  --cream: #FDFAF5;
+  --white: #ffffff;
+  --text: #1e2832;
+  --muted: #6b7a8d;
+  --border: #e8e2d9;
+  --shadow: 0 8px 32px rgba(26,39,68,0.10);
+  --transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;}
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:999;
+  background:rgba(10,20,10,0.97);
+  backdrop-filter:blur(12px);
+  padding:0 5vw;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--gold);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none;}
+.logo-img{height:48px;width:auto;object-fit:contain;border-radius:6px;}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:white;font-weight:700;letter-spacing:0.03em;line-height:1.2;}
+.nav-logo-sub{font-size:0.65rem;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;display:block;}
+.nav-links{display:flex;gap:0;list-style:none;}
+.nav-links li a{
+  display:block;padding:0 16px;height:68px;line-height:68px;
+  color:rgba(255,255,255,0.72);font-size:0.85rem;font-weight:500;
+  text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;
+  transition:var(--transition);border-bottom:3px solid transparent;cursor:pointer;
+}
+.nav-links li a:hover,.nav-links li a.active{color:white;border-bottom-color:var(--gold);}
+.nav-enquiry{
+  background:var(--gold);color:white;font-weight:700;font-size:0.82rem;
+  padding:9px 18px;border-radius:7px;letter-spacing:0.05em;
+  text-transform:uppercase;transition:var(--transition);cursor:pointer;border:none;
+}
+.nav-enquiry:hover{background:var(--gold-light);transform:translateY(-1px);}
+
+/* HERO */
+.hero{position:relative;height:92vh;overflow:hidden;}
+.carousel-slides{position:relative;height:100%;}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;background-size:cover;background-position:center;}
+.slide.active{opacity:1;}
+.slide::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,20,10,0.82) 0%,rgba(10,20,10,0.3) 60%,rgba(10,20,10,0.65) 100%);}
+.slide-1{background-image:url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1800&q=80');}
+.slide-2{background-image:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1800&q=80');}
+.slide-3{background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1800&q=80');}
+.slide-4{background-image:url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1800&q=80');}
+.hero-content{
+  position:absolute;z-index:2;top:50%;left:50%;transform:translate(-50%,-50%);
+  text-align:center;width:90%;max-width:860px;
+}
+.hero-tag{
+  display:inline-block;background:rgba(200,146,42,0.2);border:1px solid rgba(200,146,42,0.5);
+  color:#e8be6a;font-size:0.75rem;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;padding:5px 18px;border-radius:100px;margin-bottom:1.4rem;
+  animation:fadeUp 0.7s ease both;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,7vw,5rem);font-weight:800;
+  color:white;line-height:1.05;margin-bottom:1.2rem;
+  animation:fadeUp 0.8s 0.1s ease both;
+}
+.hero-title em{color:var(--gold);font-style:normal;}
+.hero-sub{
+  color:rgba(255,255,255,0.75);font-size:1.05rem;font-weight:300;line-height:1.75;
+  margin-bottom:2.4rem;animation:fadeUp 0.8s 0.2s ease both;
+}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.8s 0.3s ease both;}
+.btn-primary{
+  background:var(--gold);color:white;font-weight:700;font-size:0.95rem;
+  padding:14px 34px;border-radius:8px;border:none;
+  box-shadow:0 6px 24px rgba(200,146,42,0.4);transition:var(--transition);cursor:pointer;
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-3px);}
+.btn-outline{
+  background:transparent;color:white;font-weight:600;font-size:0.95rem;
+  padding:13px 30px;border-radius:8px;border:none;
+  border:2px solid rgba(255,255,255,0.4);transition:var(--transition);cursor:pointer;
+}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.08);}
+.carousel-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);cursor:pointer;transition:var(--transition);}
+.dot.active{background:var(--gold);width:24px;border-radius:4px;}
+
+/* SECTIONS */
+.section{padding:80px 5vw;}
+.section-header{text-align:center;margin-bottom:3rem;}
+.section-label{font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:block;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:var(--navy);line-height:1.1;}
+.section-sub{color:var(--muted);font-size:0.95rem;margin-top:0.8rem;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto;}
+
+/* DEST CARDS */
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.dest-card{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;box-shadow:var(--shadow);transition:var(--transition);}
+.dest-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(26,39,68,0.16);}
+.dest-img{height:220px;overflow:hidden;}
+.dest-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.dest-card:hover .dest-img img{transform:scale(1.07);}
+.dest-body{background:white;padding:1.2rem 1.4rem;}
+.dest-state{font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;}
+.dest-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+.dest-desc{font-size:0.85rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
+.dest-footer{display:flex;justify-content:space-between;align-items:center;}
+.dest-tag{background:var(--green-pale);color:var(--green);font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:100px;}
+.btn-xs{background:var(--navy);color:white;font-size:0.78rem;font-weight:700;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;transition:var(--transition);}
+.btn-xs:hover{background:var(--navy-mid);}
+
+/* PACKAGES PAGE */
+.pkg-page-hero{background:linear-gradient(135deg,rgba(10,20,10,0.95) 0%,rgba(45,106,45,0.9) 100%),url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80') center/cover;padding:70px 5vw 50px;text-align:center;}
+.pkg-page-hero h1{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:white;font-weight:800;margin-bottom:0.5rem;}
+.pkg-page-hero p{color:rgba(255,255,255,0.6);font-size:1rem;}
+.pkg-layout{display:grid;grid-template-columns:260px 1fr;gap:2rem;padding:50px 5vw;align-items:start;}
+.filter-sidebar{background:white;border-radius:16px;padding:1.5rem;box-shadow:var(--shadow);position:sticky;top:82px;}
+.filter-sidebar h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:1.2rem;border-bottom:2px solid var(--green-pale);padding-bottom:0.8rem;}
+.filter-group{margin-bottom:1.5rem;}
+.filter-group h4{font-size:0.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.7rem;}
+.filter-opt{display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;}
+.filter-opt input{accent-color:var(--gold);width:14px;height:14px;}
+.filter-opt label{font-size:0.88rem;color:var(--text);cursor:pointer;}
+.pkg-grid-main{display:flex;flex-direction:column;gap:1.4rem;}
+.pkg-row{background:white;border-radius:14px;overflow:hidden;display:grid;grid-template-columns:280px 1fr;box-shadow:var(--shadow);transition:var(--transition);}
+.pkg-row:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(26,39,68,0.14);}
+.pkg-row-img{height:200px;overflow:hidden;position:relative;}
+.pkg-row-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.pkg-row:hover .pkg-row-img img{transform:scale(1.05);}
+.pkg-row-badge{position:absolute;top:12px;left:12px;background:var(--gold);color:white;font-size:0.7rem;font-weight:800;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.05em;}
+.pkg-row-body{padding:1.4rem 1.6rem;display:flex;flex-direction:column;justify-content:space-between;}
+.pkg-row-state{font-size:0.72rem;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
+.pkg-row-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin:4px 0 8px;}
+.pkg-row-desc{font-size:0.87rem;color:var(--muted);line-height:1.65;margin-bottom:1rem;}
+.pkg-row-meta{display:flex;gap:1.2rem;font-size:0.82rem;color:var(--muted);flex-wrap:wrap;}
+.pkg-row-footer{display:flex;align-items:center;justify-content:space-between;margin-top:1rem;}
+.pkg-price{font-size:1.4rem;font-weight:800;color:var(--navy);}
+.pkg-price small{font-size:0.8rem;font-weight:400;color:var(--muted);}
+
+/* ABOUT PAGE */
+.about-hero{background:linear-gradient(135deg,rgba(10,20,10,0.95),rgba(45,106,45,0.85)),url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=80') center/cover;padding:80px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-hero-text h1{font-family:'Cormorant Garamond',serif;font-size:3rem;color:white;font-weight:800;margin-bottom:1rem;line-height:1.1;}
+.about-hero-text p{color:rgba(255,255,255,0.65);line-height:1.8;font-size:0.97rem;margin-bottom:1.5rem;}
+.about-hero-img{border-radius:20px;overflow:hidden;height:380px;}
+.about-hero-img img{width:100%;height:100%;object-fit:cover;}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);background:var(--gold);}
+.stat{padding:2rem;text-align:center;border-right:1px solid rgba(255,255,255,0.2);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:800;color:white;display:block;}
+.stat-label{font-size:0.82rem;color:rgba(255,255,255,0.75);font-weight:500;margin-top:4px;}
+.about-values{padding:70px 5vw;background:var(--cream);}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;}
+.value-card{background:white;border-radius:14px;padding:1.8rem 1.4rem;box-shadow:var(--shadow);text-align:center;transition:var(--transition);}
+.value-card:hover{transform:translateY(-4px);}
+.value-icon{font-size:2rem;margin-bottom:0.8rem;}
+.value-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.value-text{font-size:0.85rem;color:var(--muted);line-height:1.65;}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;}
+.team-card{text-align:center;padding:1.5rem 1rem;}
+.team-avatar{width:90px;height:90px;border-radius:50%;overflow:hidden;margin:0 auto 1rem;border:3px solid var(--green-pale);}
+.team-avatar img{width:100%;height:100%;object-fit:cover;}
+.team-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--navy);}
+.team-role{font-size:0.8rem;color:var(--muted);margin-top:3px;}
+
+/* GALLERY */
+.gallery-hero{background:linear-gradient(135deg,rgba(10,20,10,0.95),rgba(45,106,45,0.85)),url('https://images.unsplash.com/photo-1551632811-561732d1e306?w=1400&q=80') center/cover;padding:60px 5vw;text-align:center;}
+.gallery-hero h1{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:white;font-weight:800;}
+.gallery-hero p{color:rgba(255,255,255,0.55);margin-top:0.5rem;}
+.gallery-filters{display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;padding:2rem 5vw 0;}
+.gf-btn{background:white;border:2px solid var(--border);color:var(--muted);font-size:0.85rem;font-weight:600;padding:8px 20px;border-radius:100px;cursor:pointer;transition:var(--transition);}
+.gf-btn:hover,.gf-btn.active{background:var(--gold);border-color:var(--gold);color:white;}
+.gallery-grid{display:grid;padding:2rem 5vw 4rem;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.gal-item{border-radius:12px;overflow:hidden;cursor:pointer;position:relative;}
+.gal-item.tall{grid-row:span 2;}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+.gal-item:hover img{transform:scale(1.05);}
+.gal-overlay{position:absolute;inset:0;background:rgba(10,20,10,0);transition:var(--transition);display:flex;align-items:center;justify-content:center;}
+.gal-item:hover .gal-overlay{background:rgba(10,20,10,0.5);}
+.gal-label{color:white;font-weight:700;font-size:1rem;opacity:0;transform:translateY(8px);transition:var(--transition);}
+.gal-item:hover .gal-label{opacity:1;transform:translateY(0);}
+
+/* ENQUIRY */
+.enquiry-hero{background:url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80') center/cover;position:relative;padding:100px 5vw 70px;text-align:center;}
+.enquiry-hero::after{content:'';position:absolute;inset:0;background:rgba(10,20,10,0.78);}
+.enquiry-hero-content{position:relative;z-index:2;}
+.enquiry-hero h1{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:white;font-weight:800;}
+.enquiry-hero p{color:rgba(255,255,255,0.65);margin-top:0.5rem;}
+.enquiry-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:60px 5vw;}
+.enq-form-box{background:white;border-radius:20px;padding:2.5rem;box-shadow:var(--shadow);}
+.enq-form-box h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:1.1rem;}
+.form-group label{font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+.form-group input,.form-group select,.form-group textarea{border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;font-family:'Outfit',sans-serif;font-size:0.93rem;color:var(--text);background:var(--cream);outline:none;transition:var(--transition);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:white;}
+.form-group textarea{resize:vertical;min-height:110px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.btn-submit{background:var(--gold);color:white;font-weight:800;font-size:1rem;padding:14px 36px;border-radius:10px;border:none;cursor:pointer;letter-spacing:0.04em;transition:var(--transition);width:100%;margin-top:0.5rem;}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-2px);}
+.enq-info{display:flex;flex-direction:column;gap:0;}
+.enq-info h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--navy);margin-bottom:1.5rem;}
+.contact-item{display:flex;gap:14px;align-items:flex-start;padding:1.2rem;background:white;border-radius:12px;margin-bottom:1rem;box-shadow:var(--shadow);}
+.ci-icon{width:42px;height:42px;background:var(--green-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.ci-text strong{display:block;font-size:0.78rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:2px;}
+.ci-text span{font-size:0.94rem;color:var(--text);}
+.enq-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;margin-top:1rem;border-radius:14px;overflow:hidden;}
+.enq-img-grid img{width:100%;height:90px;object-fit:cover;}
+
+/* DETAIL */
+.detail-hero{height:55vh;position:relative;overflow:hidden;}
+.detail-hero img{width:100%;height:100%;object-fit:cover;}
+.detail-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,20,10,0.88),transparent 50%);}
+.detail-hero-content{position:absolute;bottom:2.5rem;left:5vw;z-index:2;}
+.detail-hero-content h1{font-family:'Cormorant Garamond',serif;font-size:2.8rem;color:white;font-weight:800;}
+.detail-hero-content p{color:rgba(255,255,255,0.7);font-size:1rem;margin-top:5px;}
+.detail-layout{display:grid;grid-template-columns:1fr 360px;gap:2.5rem;padding:50px 5vw;}
+.detail-info-box h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;}
+.detail-info-box p{color:var(--muted);line-height:1.8;font-size:0.94rem;margin-bottom:1.5rem;}
+.detail-img-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:2rem;}
+.detail-img-grid img{width:100%;height:160px;object-fit:cover;border-radius:10px;}
+.detail-img-grid img:first-child{grid-column:span 2;height:260px;}
+.highlight-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:2rem;}
+.highlight-list li{display:flex;align-items:center;gap:10px;font-size:0.9rem;color:var(--text);}
+.highlight-list li::before{content:'✦';color:var(--gold);font-size:0.7rem;}
+.detail-sidebar{position:sticky;top:80px;}
+.booking-card{background:white;border-radius:18px;padding:1.8rem;box-shadow:var(--shadow);}
+.booking-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:1.2rem;}
+.booking-price{font-size:2rem;font-weight:800;color:var(--navy);margin-bottom:1.2rem;}
+.booking-price small{font-size:0.85rem;color:var(--muted);font-weight:400;}
+.itinerary-day{background:white;border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:0.8rem;box-shadow:var(--shadow);border-left:4px solid var(--gold);}
+.itinerary-day h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.itinerary-day p{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+
+/* FOOTER */
+footer{background:rgba(10,20,10,0.97);padding:50px 5vw 24px;}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem;}
+.footer-brand p{color:rgba(255,255,255,0.45);font-size:0.87rem;line-height:1.75;margin-top:0.8rem;max-width:260px;}
+footer h4{color:white;font-size:0.9rem;font-weight:700;margin-bottom:1rem;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+footer ul li a,footer ul li span{color:rgba(255,255,255,0.45);font-size:0.85rem;text-decoration:none;transition:var(--transition);cursor:pointer;}
+footer ul li a:hover,footer ul li span:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:1.4rem;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{color:rgba(255,255,255,0.3);font-size:0.8rem;}
+.footer-logo{display:flex;align-items:center;gap:10px;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:900px){
+  .dest-grid,.values-grid{grid-template-columns:repeat(2,1fr);}
+  .pkg-layout{grid-template-columns:1fr;}
+  .pkg-row{grid-template-columns:1fr;}
+  .about-hero{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .enquiry-layout{grid-template-columns:1fr;}
+  .detail-layout{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .dest-grid,.gallery-grid{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">
+    <!-- Travel Diary Tourism SVG Logo (based on book+mountain+plane motif) -->
+    <svg width="52" height="44" viewBox="0 0 52 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/>
+      <rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/>
+      <line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/>
+      <!-- Mountains on right page -->
+      <polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.7"/>
+      <polygon points="36,32 42,24 48,32" fill="#2d6a2d" opacity="0.9"/>
+      <!-- Trees -->
+      <polygon points="30,32 32,27 34,32" fill="#1a4a1a"/>
+      <!-- Plane on left page -->
+      <path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/>
+      <path d="M12 20 L14 17 L16 20" fill="#c8922a" opacity="0.6"/>
+      <!-- Lines on left page (diary lines) -->
+      <line x1="6" y1="26" x2="20" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+      <line x1="6" y1="29" x2="20" y2="29" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+    </svg>
+    <div>
+      <span class="nav-logo-text">Travel Diary</span>
+      <span class="nav-logo-sub">Tourism</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('packages')" id="nav-packages">Packages</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About Us</a></li>
+    <li><a onclick="showPage('gallery')" id="nav-gallery">Gallery</a></li>
+    <li><a onclick="showPage('enquiry')" id="nav-enquiry-link">Contact</a></li>
+  </ul>
+  <button class="nav-enquiry" onclick="showPage('enquiry')">Book Now</button>
+</nav>
+
+<!-- ══════════ HOME ══════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="carousel-slides">
+      <div class="slide slide-1 active"></div>
+      <div class="slide slide-2"></div>
+      <div class="slide slide-3"></div>
+      <div class="slide slide-4"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag">✦ Northeast India's Finest Tours</div>
+      <h1 class="hero-title">Discover the <em>Unexplored<br>Northeast</em></h1>
+      <p class="hero-sub">From misty Darjeeling ridgelines to the ancient monasteries of Tawang — Travel Diary Tourism crafts journeys that write themselves in your memory forever.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage('packages')">Explore Packages</button>
+        <button class="btn-outline" onclick="showPage('enquiry')">Plan My Trip</button>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <div class="dot active" onclick="goToSlide(0)"></div>
+      <div class="dot" onclick="goToSlide(1)"></div>
+      <div class="dot" onclick="goToSlide(2)"></div>
+      <div class="dot" onclick="goToSlide(3)"></div>
+    </div>
+  </div>
+
+  <!-- Destinations -->
+  <div class="section" style="background:white;">
+    <div class="section-header">
+      <span class="section-label">Northeast India</span>
+      <h2 class="section-title">Our Signature Destinations</h2>
+      <p class="section-sub">Handpicked journeys through the most breathtaking and soul-stirring corners of Northeast India.</p>
+    </div>
+    <div class="dest-grid">
+
+      <div class="dest-card" onclick="showDetail('darjeeling')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Darjeeling"></div>
+        <div class="dest-body">
+          <div class="dest-state">West Bengal</div>
+          <h3 class="dest-name">Darjeeling – Queen of Hills</h3>
+          <p class="dest-desc">Toy trains, Kanchenjunga views, world-famous tea gardens, and the magical sunrise at Tiger Hill.</p>
+          <div class="dest-footer"><span class="dest-tag">Hills</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('darjeeling')">Details →</button></div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="showDetail('sittong')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Sittong"></div>
+        <div class="dest-body">
+          <div class="dest-state">West Bengal</div>
+          <h3 class="dest-name">Sittong – Hidden Village</h3>
+          <p class="dest-desc">The best-kept secret of the Darjeeling hills — orange orchards, fireflies, and untouched village tranquility.</p>
+          <div class="dest-footer"><span class="dest-tag">Offbeat</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('sittong')">Details →</button></div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="showDetail('tawang')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80" alt="Tawang"></div>
+        <div class="dest-body">
+          <div class="dest-state">Arunachal Pradesh</div>
+          <h3 class="dest-name">Tawang – Land of Monks</h3>
+          <p class="dest-desc">Asia's largest Buddhist monastery, snow-draped peaks, and remote mountain passes that touch the sky.</p>
+          <div class="dest-footer"><span class="dest-tag">Spiritual</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('tawang')">Details →</button></div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="showDetail('arunachal')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80" alt="Arunachal Pradesh"></div>
+        <div class="dest-body">
+          <div class="dest-state">Arunachal Pradesh</div>
+          <h3 class="dest-name">Arunachal Group Tour</h3>
+          <p class="dest-desc">7 Nights · 8 Days · ₹26,800/person. The ultimate Northeast adventure — Ziro, Mechuka, and Dirang.</p>
+          <div class="dest-footer"><span class="dest-tag">Group Tour</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('arunachal')">Details →</button></div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="showDetail('biketawang')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bike Trip Tawang"></div>
+        <div class="dest-body">
+          <div class="dest-state">Arunachal Pradesh</div>
+          <h3 class="dest-name">Tawang Bike Expedition</h3>
+          <p class="dest-desc">The ultimate biker's dream — ride through Sela Pass, Bomdila, and arrive at Tawang on two wheels.</p>
+          <div class="dest-footer"><span class="dest-tag">Bike Trip</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('biketawang')">Details →</button></div>
+        </div>
+      </div>
+
+      <div class="dest-card" onclick="showDetail('meghalaya')">
+        <div class="dest-img"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Meghalaya"></div>
+        <div class="dest-body">
+          <div class="dest-state">Meghalaya</div>
+          <h3 class="dest-name">Meghalaya – Abode of Clouds</h3>
+          <p class="dest-desc">Living root bridges, Dawki's crystal-clear river, Cherrapunji waterfalls, and misty Shillong.</p>
+          <div class="dest-footer"><span class="dest-tag">Nature</span><button class="btn-xs" onclick="event.stopPropagation();showDetail('meghalaya')">Details →</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Why Us -->
+  <div class="section" style="background:rgba(10,20,10,0.96);">
+    <div class="section-header">
+      <span class="section-label">Why Travel Diary Tourism</span>
+      <h2 class="section-title" style="color:white;">Your Northeast, Our Passion</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;">
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(200,146,42,0.25);border-radius:14px;padding:2rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🗺️</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;margin-bottom:0.5rem;">Northeast Specialists</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.87rem;line-height:1.7;">We live and breathe Northeast India. Our guides are locals with generations of mountain knowledge.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(200,146,42,0.25);border-radius:14px;padding:2rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🏕️</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;margin-bottom:0.5rem;">Offbeat & Authentic</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.87rem;line-height:1.7;">We take you beyond tourist trails — to hidden villages, secret viewpoints, and real local culture.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(200,146,42,0.25);border-radius:14px;padding:2rem;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:1rem;">🛡️</div>
+        <h3 style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;margin-bottom:0.5rem;">Safe Mountain Travel</h3>
+        <p style="color:rgba(255,255,255,0.5);font-size:0.87rem;line-height:1.7;">Fully permitted tours, ILP assistance, 24/7 support, and experienced mountain-certified guides.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Package Banner -->
+  <div style="background:linear-gradient(135deg,var(--gold) 0%,#a07020 100%);padding:50px 5vw;text-align:center;">
+    <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.7);display:block;margin-bottom:0.5rem;">🔥 Featured Group Tour</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:white;font-weight:800;margin-bottom:0.8rem;">Arunachal Pradesh Group Tour · 2–9 March</h2>
+    <p style="color:rgba(255,255,255,0.8);margin-bottom:1.5rem;font-size:1rem;">7 Nights | 8 Days · ₹26,800 / Person · Triple Sharing · Breakfast Included</p>
+    <button class="btn-outline" onclick="showDetail('arunachal')" style="border-color:white;color:white;">View Full Itinerary →</button>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <svg width="44" height="36" viewBox="0 0 52 44" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.7"/><polygon points="36,32 42,24 48,32" fill="#2d6a2d" opacity="0.9"/><polygon points="30,32 32,27 34,32" fill="#1a4a1a"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg>
+          <div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div>
+        </div>
+        <p>Northeast India's most trusted travel partner. We turn your mountain dreams into unforgettable diary entries.</p>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li><li><span onclick="showPage('about')">About Us</span></li><li><span onclick="showPage('gallery')">Gallery</span></li></ul></div>
+      <div><h4>Destinations</h4><ul><li><span onclick="showDetail('darjeeling')">Darjeeling</span></li><li><span onclick="showDetail('sittong')">Sittong</span></li><li><span onclick="showDetail('tawang')">Tawang</span></li><li><span onclick="showDetail('biketawang')">Bike to Tawang</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li><li><span>hello@traveldiarytourism.com</span></li><li><span>Northeast India</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p><p style="color:rgba(255,255,255,0.3);font-size:0.8rem;">Write Your Journey. Live Your Story.</p></div>
+  </footer>
+</div>
+
+<!-- ══════════ PACKAGES ══════════ -->
+<div id="page-packages" class="page">
+  <div class="pkg-page-hero">
+    <h1>Northeast Tour Packages</h1>
+    <p>Curated journeys across Arunachal Pradesh, West Bengal, Meghalaya & beyond</p>
+  </div>
+  <div class="pkg-layout">
+    <div class="filter-sidebar">
+      <h3>Filter Tours</h3>
+      <div class="filter-group">
+        <h4>Destination</h4>
+        <div class="filter-opt"><input type="checkbox" id="f1" checked><label for="f1">Darjeeling & Sittong</label></div>
+        <div class="filter-opt"><input type="checkbox" id="f2" checked><label for="f2">Tawang</label></div>
+        <div class="filter-opt"><input type="checkbox" id="f3" checked><label for="f3">Arunachal Pradesh</label></div>
+        <div class="filter-opt"><input type="checkbox" id="f4" checked><label for="f4">Meghalaya</label></div>
+      </div>
+      <div class="filter-group">
+        <h4>Tour Type</h4>
+        <div class="filter-opt"><input type="checkbox" id="t1" checked><label for="t1">Group Tours</label></div>
+        <div class="filter-opt"><input type="checkbox" id="t2" checked><label for="t2">Bike Expeditions</label></div>
+        <div class="filter-opt"><input type="checkbox" id="t3" checked><label for="t3">Family Tours</label></div>
+        <div class="filter-opt"><input type="checkbox" id="t4"><label for="t4">Offbeat / Solo</label></div>
+      </div>
+      <div class="filter-group">
+        <h4>Duration</h4>
+        <div class="filter-opt"><input type="checkbox" id="d1"><label for="d1">3–4 Days</label></div>
+        <div class="filter-opt"><input type="checkbox" id="d2" checked><label for="d2">5–7 Days</label></div>
+        <div class="filter-opt"><input type="checkbox" id="d3" checked><label for="d3">8–10 Days</label></div>
+      </div>
+    </div>
+    <div class="pkg-grid-main">
+
+      <div class="pkg-row">
+        <div class="pkg-row-img"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80" alt="Arunachal"><span class="pkg-row-badge">🔥 Featured</span></div>
+        <div class="pkg-row-body">
+          <div>
+            <div class="pkg-row-state">Arunachal Pradesh</div>
+            <h3 class="pkg-row-title">Arunachal Pradesh Group Tour</h3>
+            <p class="pkg-row-desc">Experience the raw beauty of Arunachal — Ziro Valley's rice fields, Dirang's apple orchards, ancient Tawang Monastery, and the thrilling Sela Pass at 13,700 ft.</p>
+            <div class="pkg-row-meta"><span>🌙 7 Nights</span><span>📅 8 Days</span><span>📆 2–9 March</span><span>🏨 Triple Sharing</span><span>🍳 Breakfast Incl.</span></div>
+          </div>
+          <div class="pkg-row-footer"><div class="pkg-price">₹26,800 <small>/ person</small></div><button class="btn-xs" onclick="showDetail('arunachal')">View Details →</button></div>
+        </div>
+      </div>
+
+      <div class="pkg-row">
+        <div class="pkg-row-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Darjeeling"><span class="pkg-row-badge">Popular</span></div>
+        <div class="pkg-row-body">
+          <div>
+            <div class="pkg-row-state">West Bengal</div>
+            <h3 class="pkg-row-title">Darjeeling & Sittong Discovery</h3>
+            <p class="pkg-row-desc">Tiger Hill sunrise, Darjeeling Toy Train ride, and the hidden village of Sittong — famous for its orange orchards and firefly evenings. A perfect hill retreat.</p>
+            <div class="pkg-row-meta"><span>🌙 4 Nights</span><span>📅 5 Days</span><span>👥 Min 2</span><span>🍵 Tea Garden Visit</span></div>
+          </div>
+          <div class="pkg-row-footer"><div class="pkg-price">₹12,500 <small>/ person</small></div><button class="btn-xs" onclick="showDetail('darjeeling')">View Details →</button></div>
+        </div>
+      </div>
+
+      <div class="pkg-row">
+        <div class="pkg-row-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bike Tawang"><span class="pkg-row-badge">Adventure</span></div>
+        <div class="pkg-row-body">
+          <div>
+            <div class="pkg-row-state">Arunachal Pradesh</div>
+            <h3 class="pkg-row-title">Tawang Bike Expedition</h3>
+            <p class="pkg-row-desc">Saddle up for the ultimate Northeast ride — Guwahati to Tawang on two wheels. Cross Sela Pass, conquer Bomdila, and reach the monastery town on a legendary mountain route.</p>
+            <div class="pkg-row-meta"><span>🌙 8 Nights</span><span>📅 9 Days</span><span>🏍️ Bikes Available</span><span>🏔️ 13,700 ft Pass</span></div>
+          </div>
+          <div class="pkg-row-footer"><div class="pkg-price">₹32,000 <small>/ person</small></div><button class="btn-xs" onclick="showDetail('biketawang')">View Details →</button></div>
+        </div>
+      </div>
+
+      <div class="pkg-row">
+        <div class="pkg-row-img"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Sittong"><span class="pkg-row-badge">Offbeat</span></div>
+        <div class="pkg-row-body">
+          <div>
+            <div class="pkg-row-state">West Bengal</div>
+            <h3 class="pkg-row-title">Sittong Firefly Village Escape</h3>
+            <p class="pkg-row-desc">A hidden gem near Darjeeling — Sittong village is ringed by orange orchards, cardamom forests, and lit every night by thousands of fireflies. Slow travel at its finest.</p>
+            <div class="pkg-row-meta"><span>🌙 2 Nights</span><span>📅 3 Days</span><span>🌿 Homestay</span><span>🔥 Firefly Walk</span></div>
+          </div>
+          <div class="pkg-row-footer"><div class="pkg-price">₹6,800 <small>/ person</small></div><button class="btn-xs" onclick="showDetail('sittong')">View Details →</button></div>
+        </div>
+      </div>
+
+      <div class="pkg-row">
+        <div class="pkg-row-img"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Meghalaya"><span class="pkg-row-badge">Nature</span></div>
+        <div class="pkg-row-body">
+          <div>
+            <div class="pkg-row-state">Meghalaya</div>
+            <h3 class="pkg-row-title">Meghalaya – Scotland of the East</h3>
+            <p class="pkg-row-desc">Living root bridges of Nongriat, Dawki's glass-green river, Mawlynnong cleanest village, Double Decker bridge trek, and the cloud-wrapped streets of Shillong.</p>
+            <div class="pkg-row-meta"><span>🌙 5 Nights</span><span>📅 6 Days</span><span>👥 Min 4</span><span>🌉 Root Bridge Trek</span></div>
+          </div>
+          <div class="pkg-row-footer"><div class="pkg-price">₹17,500 <small>/ person</small></div><button class="btn-xs" onclick="showDetail('meghalaya')">View Details →</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="footer-logo"><svg width="44" height="36" viewBox="0 0 52 44" fill="none"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.9"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg><div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div></div><p>Northeast India's most trusted travel partner.</p></div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li><li><span onclick="showPage('enquiry')">Contact</span></li></ul></div>
+      <div><h4>Tours</h4><ul><li><span onclick="showDetail('arunachal')">Arunachal Tour</span></li><li><span onclick="showDetail('biketawang')">Bike to Tawang</span></li><li><span onclick="showDetail('darjeeling')">Darjeeling</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li><li><span>hello@traveldiarytourism.com</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p></div>
+  </footer>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-hero-text">
+      <span class="section-label">Our Story</span>
+      <h1>Born in the<br>Mountains of the Northeast</h1>
+      <p>Travel Diary Tourism was founded by passionate Northeast explorers who believed that the most extraordinary stories are written on roads less traveled. We are not just a travel company — we are storytellers, mountain lovers, and culture seekers.</p>
+      <p>Specializing exclusively in Northeast India, we bring you immersive journeys to Arunachal Pradesh, Meghalaya, Sikkim, Darjeeling, and beyond — with the warmth of local hospitality and the expertise of certified mountain guides.</p>
+      <button class="btn-primary" onclick="showPage('enquiry')">Start Your Journey</button>
+    </div>
+    <div class="about-hero-img"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80" alt="Tawang"></div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">8+</span><span class="stat-label">Years in Northeast</span></div>
+    <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Curated Routes</span></div>
+    <div class="stat"><span class="stat-num">5,000+</span><span class="stat-label">Happy Travellers</span></div>
+    <div class="stat"><span class="stat-num">8</span><span class="stat-label">States Covered</span></div>
+  </div>
+
+  <div class="about-values">
+    <div class="section-header">
+      <span class="section-label">What We Stand For</span>
+      <h2 class="section-title">Our Core Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-icon">🌿</div><div class="value-title">Responsible Tourism</div><p class="value-text">We respect fragile mountain ecosystems, support local tribal communities, and promote zero-plastic travel policies.</p></div>
+      <div class="value-card"><div class="value-icon">🗺️</div><div class="value-title">Off the Beaten Path</div><p class="value-text">We specialize in routes that most agencies don't know exist — hidden valleys, tribal villages, secret waterfalls.</p></div>
+      <div class="value-card"><div class="value-icon">🏔️</div><div class="value-title">Mountain Safety First</div><p class="value-text">All our guides are mountain-trained. We handle ILP permits, altitude protocols, and emergency logistics for you.</p></div>
+      <div class="value-card"><div class="value-icon">📖</div><div class="value-title">Your Story Matters</div><p class="value-text">Every journey we create is unique. We listen, we personalize, and we make sure your travel diary is truly yours.</p></div>
+    </div>
+  </div>
+
+  <div style="padding:70px 5vw;background:white;">
+    <div class="section-header">
+      <span class="section-label">The People Behind</span>
+      <h2 class="section-title">Meet Our Team</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card"><div class="team-avatar"><img src="https://i.pravatar.cc/150?img=12" alt=""></div><div class="team-name">Rajiv Thapa</div><div class="team-role">Founder & Lead Guide</div></div>
+      <div class="team-card"><div class="team-avatar"><img src="https://i.pravatar.cc/150?img=25" alt=""></div><div class="team-name">Priya Bora</div><div class="team-role">Arunachal Specialist</div></div>
+      <div class="team-card"><div class="team-avatar"><img src="https://i.pravatar.cc/150?img=53" alt=""></div><div class="team-name">Dorjee Wangchuk</div><div class="team-role">Tawang & Trekking Expert</div></div>
+      <div class="team-card"><div class="team-avatar"><img src="https://i.pravatar.cc/150?img=47" alt=""></div><div class="team-name">Sunita Rai</div><div class="team-role">Customer Relations</div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="footer-logo"><svg width="44" height="36" viewBox="0 0 52 44" fill="none"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.9"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg><div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div></div><p>Northeast India's most trusted travel partner.</p></div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li><li><span onclick="showPage('enquiry')">Contact</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li><li><span>hello@traveldiarytourism.com</span></li></ul></div>
+      <div><h4>Follow</h4><ul><li><span>Instagram</span></li><li><span>Facebook</span></li><li><span>YouTube</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p></div>
+  </footer>
+</div>
+
+<!-- ══════════ GALLERY ══════════ -->
+<div id="page-gallery" class="page">
+  <div class="gallery-hero">
+    <h1>Northeast Through Our Lens</h1>
+    <p>Every photo is a diary entry from our journeys across the Northeast</p>
+  </div>
+  <div class="gallery-filters">
+    <button class="gf-btn active">All</button>
+    <button class="gf-btn">Darjeeling</button>
+    <button class="gf-btn">Sittong</button>
+    <button class="gf-btn">Tawang</button>
+    <button class="gf-btn">Arunachal</button>
+    <button class="gf-btn">Bike Trips</button>
+  </div>
+  <div class="gallery-grid">
+    <div class="gal-item tall"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80" alt="Tawang" style="height:100%;"><div class="gal-overlay"><span class="gal-label">Tawang Monastery</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Darjeeling" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Darjeeling Hills</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Sittong" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Sittong Village</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80" alt="Mountain Pass" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Sela Pass</span></div></div>
+    <div class="gal-item tall"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bike" style="height:100%;"><div class="gal-overlay"><span class="gal-label">Tawang Bike Expedition</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Meghalaya" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Meghalaya Valleys</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&q=80" alt="Mountains" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Northeast Peaks</span></div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1610968788756-e1778b9cfaf1?w=600&q=80" alt="Monastery" style="height:260px;"><div class="gal-overlay"><span class="gal-label">Buddhist Monastery</span></div></div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="footer-logo"><svg width="44" height="36" viewBox="0 0 52 44" fill="none"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.9"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg><div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div></div><p>Northeast India's most trusted travel partner.</p></div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li><li><span>hello@traveldiarytourism.com</span></li></ul></div>
+      <div><h4>Follow</h4><ul><li><span>Instagram</span></li><li><span>Facebook</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p></div>
+  </footer>
+</div>
+
+<!-- ══════════ ENQUIRY ══════════ -->
+<div id="page-enquiry" class="page">
+  <div class="enquiry-hero">
+    <div class="enquiry-hero-content">
+      <h1>Plan Your Northeast Adventure</h1>
+      <p>Share your travel dream — our Northeast specialists will craft the perfect itinerary within 24 hours.</p>
+    </div>
+  </div>
+  <div class="enquiry-layout">
+    <div class="enq-form-box">
+      <h2>Send an Enquiry</h2>
+      <form onsubmit="submitEnquiry(event)">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Your name" required></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name" required></div>
+        </div>
+        <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="+91 98765 43210" required></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@email.com" required></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tour Package</label>
+            <select>
+              <option value="">Select a Tour</option>
+              <option>Arunachal Pradesh Group Tour (2–9 March)</option>
+              <option>Darjeeling & Sittong Discovery</option>
+              <option>Tawang Bike Expedition</option>
+              <option>Sittong Firefly Village Escape</option>
+              <option>Meghalaya Discovery</option>
+              <option>Custom Itinerary</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>No. of Travelers</label>
+            <select>
+              <option>1 Person</option>
+              <option>2 People</option>
+              <option>3–5 People</option>
+              <option>6–10 People</option>
+              <option>10+ People (Group)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Preferred Travel Date</label><input type="date"></div>
+          <div class="form-group">
+            <label>Budget (per person)</label>
+            <select>
+              <option>Under ₹10,000</option>
+              <option>₹10,000 – ₹20,000</option>
+              <option>₹20,000 – ₹35,000</option>
+              <option>₹35,000+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Message / Special Requests</label><textarea placeholder="Tell us about your dream Northeast trip — bike tour, offbeat village, monastery visit, family, honeymoon..."></textarea></div>
+        <button class="btn-submit" type="submit">Send My Enquiry 🏔️</button>
+      </form>
+    </div>
+    <div class="enq-info">
+      <h2>Get in Touch</h2>
+      <div class="contact-item"><div class="ci-icon">📞</div><div class="ci-text"><strong>Phone / WhatsApp</strong><span>+91 98765 43210</span></div></div>
+      <div class="contact-item"><div class="ci-icon">✉️</div><div class="ci-text"><strong>Email</strong><span>hello@traveldiarytourism.com</span></div></div>
+      <div class="contact-item"><div class="ci-icon">📍</div><div class="ci-text"><strong>Office</strong><span>Northeast India (Guwahati & Siliguri)</span></div></div>
+      <div class="contact-item"><div class="ci-icon">🕐</div><div class="ci-text"><strong>Hours</strong><span>Mon–Sat: 9:00 AM – 7:00 PM IST</span></div></div>
+      <div class="enq-img-grid">
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=300&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=300&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=300&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=300&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=80" alt="">
+        <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=300&q=80" alt="">
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="footer-logo"><svg width="44" height="36" viewBox="0 0 52 44" fill="none"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.9"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg><div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div></div><p>Northeast India's most trusted travel partner.</p></div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li><li><span onclick="showPage('about')">About</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li><li><span>hello@traveldiarytourism.com</span></li></ul></div>
+      <div><h4>Follow</h4><ul><li><span>Instagram</span></li><li><span>Facebook</span></li><li><span>YouTube</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p></div>
+  </footer>
+</div>
+
+<!-- ══════════ DETAIL ══════════ -->
+<div id="page-detail" class="page">
+  <div class="detail-hero"><img id="detail-img" src="" alt=""><div class="detail-hero-content"><h1 id="detail-title"></h1><p id="detail-subtitle"></p></div></div>
+  <div class="detail-layout">
+    <div class="detail-main">
+      <div class="detail-info-box">
+        <h2>About This Tour</h2>
+        <p id="detail-desc"></p>
+        <div class="detail-img-grid" id="detail-imgs"></div>
+        <h2>Day-by-Day Highlights</h2>
+        <div id="detail-itinerary"></div>
+        <h2 style="margin-top:1.5rem;">Tour Includes</h2>
+        <ul class="highlight-list" id="detail-highlights"></ul>
+        <button class="btn-primary" onclick="showPage('enquiry')" style="margin-top:1.5rem;">Book This Tour</button>
+      </div>
+    </div>
+    <div class="detail-sidebar">
+      <div class="booking-card">
+        <h3>Quick Booking</h3>
+        <div class="booking-price" id="detail-price"></div>
+        <div id="detail-meta-box" style="font-size:0.85rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.8;"></div>
+        <div class="form-group"><label>Travel Date</label><input type="date"></div>
+        <div class="form-group"><label>Travelers</label><select><option>2 People</option><option>3–5 People</option><option>Group (6+)</option></select></div>
+        <button class="btn-primary" onclick="showPage('enquiry')" style="width:100%;margin-top:0.5rem;">Enquire & Book</button>
+        <p style="font-size:0.78rem;color:var(--muted);text-align:center;margin-top:0.8rem;">ILP assistance included · Free consultation</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand"><div class="footer-logo"><svg width="44" height="36" viewBox="0 0 52 44" fill="none"><rect x="2" y="6" width="22" height="32" rx="2" fill="#1a1a1a" stroke="#c8922a" stroke-width="1.5"/><rect x="28" y="6" width="22" height="32" rx="2" fill="#f5f0e8" stroke="#c8922a" stroke-width="1.5"/><line x1="24" y1="6" x2="24" y2="38" stroke="#c8922a" stroke-width="2"/><polygon points="32,32 38,20 44,32" fill="#2d6a2d" opacity="0.9"/><path d="M8 22 L18 18 L16 22 L18 26 Z" fill="#c8922a"/></svg><div><span style="font-family:'Cormorant Garamond',serif;color:white;font-size:1.1rem;font-weight:700;">Travel Diary</span><br><span style="font-size:0.65rem;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;">Tourism</span></div></div><p>Northeast India's most trusted travel partner.</p></div>
+      <div><h4>Quick Links</h4><ul><li><span onclick="showPage('home')">Home</span></li><li><span onclick="showPage('packages')">Packages</span></li></ul></div>
+      <div><h4>Contact</h4><ul><li><span>+91 98765 43210</span></li></ul></div>
+      <div><h4>Follow</h4><ul><li><span>Instagram</span></li><li><span>Facebook</span></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Travel Diary Tourism. All rights reserved.</p></div>
+  </footer>
+</div>
+
+<script>
+const destinations = {
+  arunachal:{
+    title:'Arunachal Pradesh Group Tour',subtitle:'Arunachal Pradesh · 7 Nights · 8 Days · 2–9 March',
+    img:'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1400&q=80',
+    price:'₹26,800 <small>/ person</small>',
+    meta:'📅 2–9 March &nbsp;|&nbsp; 🛏️ Triple Sharing &nbsp;|&nbsp; 🍳 Breakfast Included &nbsp;|&nbsp; 📜 ILP Assistance',
+    desc:'Experience the untamed grandeur of Arunachal Pradesh — India\'s most pristine frontier state. From Ziro Valley\'s lush rice fields and the apple orchards of Dirang, to the awe-inspiring Tawang Monastery perched at 10,000 ft and the legendary Sela Pass draped in eternal snow, this 8-day group tour is the journey of a lifetime.',
+    imgs:['https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=80','https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80','https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Arrival at Guwahati – Drive to Bhalukpong',desc:'Arrive in Guwahati, meet your guide, and drive into Arunachal Pradesh via Bhalukpong — your gateway to the state.'},
+      {day:'Day 2',title:'Bhalukpong to Bomdila',desc:'Drive through lush forests to Bomdila. Visit the Bomdila Monastery and enjoy panoramic Himalayan views. Explore the local market.'},
+      {day:'Day 3',title:'Bomdila to Dirang',desc:'Short drive to the beautiful Dirang Valley. Visit Sangti Valley, kiwi orchards, hot springs, and the ancient Dirang Dzong fort.'},
+      {day:'Day 4',title:'Dirang to Tawang via Sela Pass',desc:'The iconic highlight — cross the Sela Pass at 13,700 ft (snow-covered!), visit Sela Lake, and arrive at Tawang by evening.'},
+      {day:'Day 5',title:'Tawang Local Sightseeing',desc:'Full day in Tawang — explore Asia\'s second-largest monastery, Urgelling Monastery (birthplace of the 6th Dalai Lama), and the war memorial.'},
+      {day:'Day 6',title:'Tawang – Bumla Pass & Madhuri Lake',desc:'Day trip to Bumla Pass on the China border (permit required) and the stunning Madhuri Lake (Shungetser) — made famous by Bollywood.'},
+      {day:'Day 7',title:'Tawang to Bomdila (Return)',desc:'Begin the return journey, stop at Nuranang Falls (Jang Falls), overnight stay in Bomdila.'},
+      {day:'Day 8',title:'Bomdila to Guwahati – Departure',desc:'Final drive back to Guwahati, drop at airport/railway station. Carry home your memories — and your Travel Diary.'},
+    ],
+    highlights:['ILP Inner Line Permit assistance','Sela Pass snow experience (13,700 ft)','Tawang Monastery — Asia\'s 2nd largest','Bumla Pass on Indo-China border','Madhuri Lake / Shungetser Lake','Nuranang Waterfall (Jang Falls)','All breakfasts included · Triple sharing accommodation','Experienced certified guide throughout']
+  },
+  darjeeling:{
+    title:'Darjeeling & Sittong Discovery',subtitle:'West Bengal · 4 Nights · 5 Days',
+    img:'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1400&q=80',
+    price:'₹12,500 <small>/ person</small>',
+    meta:'🌙 4 Nights · 5 Days &nbsp;|&nbsp; 👥 Min 2 &nbsp;|&nbsp; 🏨 Boutique Stays',
+    desc:'Darjeeling is more than a hill station — it\'s a feeling. Wake up before dawn to witness Kanchenjunga blush pink from Tiger Hill, ride the legendary UNESCO Toy Train through tea gardens, and then slip away to the secret village of Sittong — a hidden world of orange orchards, fireflies, and absolute peace.',
+    imgs:['https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80','https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80','https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Arrival in New Jalpaiguri – Drive to Darjeeling',desc:'Pick up from NJP station or Bagdogra airport, scenic drive up to Darjeeling. Evening at leisure on Mall Road.'},
+      {day:'Day 2',title:'Tiger Hill Sunrise & Darjeeling Tour',desc:'4 AM drive to Tiger Hill for the legendary Kanchenjunga sunrise. Visit Batasia Loop, Ghoom Monastery, Japanese Peace Pagoda, and Rock Garden.'},
+      {day:'Day 3',title:'Darjeeling Toy Train & Tea Garden',desc:'Iconic UNESCO Toy Train joy ride through the hills. Visit a working tea garden & factory, Happy Valley Tea Estate, and the Himalayan Mountaineering Institute.'},
+      {day:'Day 4',title:'Drive to Sittong – Firefly Village',desc:'Head to Sittong, the "orange village" hidden in the Darjeeling foothills. Walk through cardamom forests and orange orchards. Evening firefly walk.'},
+      {day:'Day 5',title:'Sittong Morning Walk – Departure',desc:'Morning village walk, local breakfast, and drive back to NJP/Bagdogra for departure.'},
+    ],
+    highlights:['Tiger Hill Kanchenjunga sunrise','UNESCO Darjeeling Toy Train ride','Happy Valley Tea Garden visit','Sittong hidden orange village','Firefly evening walk in Sittong','Ghoom Monastery & Batasia Loop','Rock Garden & Ganga Maya Park','Himalayan Mountaineering Institute']
+  },
+  sittong:{
+    title:'Sittong Firefly Village Escape',subtitle:'West Bengal · 2 Nights · 3 Days · Offbeat Retreat',
+    img:'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1400&q=80',
+    price:'₹6,800 <small>/ person</small>',
+    meta:'🌙 2 Nights · 3 Days &nbsp;|&nbsp; 🌿 Homestay &nbsp;|&nbsp; 🔥 Firefly Walk Included',
+    desc:'Sittong is Darjeeling\'s best-kept secret. Tucked in the folds of the Himalayan foothills at around 4,000 ft, this village is carpeted with orange orchards and cardamom forests. From October to December, the evenings light up with thousands of fireflies — a sight that no photograph can fully capture. This is a tour for those who seek stillness, beauty, and the real Northeast.',
+    imgs:['https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80','https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80','https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Arrival & Village Walk',desc:'Arrive at Sittong, settle into your village homestay. Evening walk through orange orchards. First firefly sighting after dark.'},
+      {day:'Day 2',title:'Full Day Village Exploration',desc:'Morning hike to viewpoint with Kanchenjunga backdrop. Visit cardamom farms, interact with local families. Evening guided firefly walk.'},
+      {day:'Day 3',title:'Sunrise & Departure',desc:'Sunrise from the hilltop. Local breakfast, collect fresh oranges. Drive back to Siliguri / NJP for onward journey.'},
+    ],
+    highlights:['Firefly walks through cardamom forests','Orange orchard walks & fresh harvest','Village homestay experience','Kanchenjunga viewpoint hike','Interaction with local Nepali community','Organic farm-to-table local meals','Birding in the orchards at dawn','Completely off-grid & peaceful']
+  },
+  tawang:{
+    title:'Tawang – Land of Monks',subtitle:'Arunachal Pradesh · 5 Nights · 6 Days',
+    img:'https://images.unsplash.com/photo-1551632811-561732d1e306?w=1400&q=80',
+    price:'₹22,000 <small>/ person</small>',
+    meta:'🌙 5 Nights · 6 Days &nbsp;|&nbsp; 📜 ILP Included &nbsp;|&nbsp; 🏔️ 10,000 ft altitude',
+    desc:'Tawang sits at 10,000 feet in the far western corner of Arunachal Pradesh, cradled by Himalayan peaks and wrapped in Buddhist spirituality. Home to the 400-year-old Tawang Monastery — the largest in Asia after Lhasa — this remote town feels like the end of the world and the beginning of everything sacred. The Sela Pass crossing at 13,700 ft is an experience that redefines what it means to travel.',
+    imgs:['https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&q=80','https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80','https://images.unsplash.com/photo-1549880338-65ddcdfd017b?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Guwahati to Bhalukpong',desc:'Depart Guwahati, enter Arunachal Pradesh, overnight at Bhalukpong.'},
+      {day:'Day 2',title:'Bhalukpong to Dirang',desc:'Drive via Bomdila, Dirang Valley apple orchards and hot springs.'},
+      {day:'Day 3',title:'Dirang to Tawang via Sela Pass',desc:'Iconic Sela Pass crossing, Sela Lake, arrive Tawang by evening.'},
+      {day:'Day 4',title:'Tawang Full Sightseeing',desc:'Tawang Monastery, Urgelling, War Memorial, local markets.'},
+      {day:'Day 5',title:'Bumla Pass & Madhuri Lake',desc:'Border area day trip, Madhuri (Shungetser) Lake, Sangestar village.'},
+      {day:'Day 6',title:'Return Journey – Guwahati',desc:'Drive back via Nuranang Falls, arrive Guwahati evening.'},
+    ],
+    highlights:['Tawang Monastery – Asia\'s largest after Lhasa','Sela Pass at 13,700 ft','Bumla Pass on India-China border','Madhuri Lake (Shungetser)','Urgelling — birthplace of 6th Dalai Lama','Nuranang (Jang) Waterfall','ILP permit assistance included','Bomdila & Dirang stopovers']
+  },
+  biketawang:{
+    title:'Tawang Bike Expedition',subtitle:'Arunachal Pradesh · 8 Nights · 9 Days · Adventure Bike Tour',
+    img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80',
+    price:'₹32,000 <small>/ person</small>',
+    meta:'🌙 8 Nights · 9 Days &nbsp;|&nbsp; 🏍️ Bikes Available on Rent &nbsp;|&nbsp; 📜 ILP Included',
+    desc:'This is not just a trip — it\'s a calling. The Guwahati to Tawang bike expedition is considered one of the most spectacular mountain motorcycle routes in all of India. Wind through lush Assam tea estates, climb into the Arunachal Himalayas, cross the legendary Sela Pass at 13,700 ft through snow and clouds, and roll into Tawang town with the satisfaction of having conquered one of India\'s greatest roads. Suitable for intermediate to experienced bikers.',
+    imgs:['https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80','https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&q=80','https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Guwahati – Briefing & Bike Handover',desc:'Group briefing, bike checks, gear distribution, overnight in Guwahati.'},
+      {day:'Day 2',title:'Guwahati to Bhalukpong',desc:'First ride through Assam into Arunachal Pradesh (approx. 200 km).'},
+      {day:'Day 3',title:'Bhalukpong to Bomdila',desc:'Climb into the mountains. Bomdila Monastery and valley views.'},
+      {day:'Day 4',title:'Bomdila to Dirang',desc:'Short scenic ride to Dirang, rest day for acclimatization.'},
+      {day:'Day 5',title:'Dirang to Tawang via Sela Pass 🏔️',desc:'THE DAY. Cross Sela Pass at 13,700 ft. The most unforgettable ride of your life.'},
+      {day:'Day 6',title:'Tawang Sightseeing',desc:'Rest bikes, explore Tawang Monastery, War Memorial, and town.'},
+      {day:'Day 7',title:'Bumla Pass & Madhuri Lake',desc:'Jeep day trip to the China border and Madhuri Lake.'},
+      {day:'Day 8',title:'Tawang to Bomdila (Return Ride)',desc:'Begin the return. Stop at Nuranang Falls.'},
+      {day:'Day 9',title:'Bomdila to Guwahati – Ride Home',desc:'Final stretch back to Guwahati. End of an incredible journey.'},
+    ],
+    highlights:['Sela Pass crossing at 13,700 ft on two wheels','Total riding distance: ~900 km round trip','Bullet / RE Himalayan bikes on rent','Experienced ride leader & sweep vehicle','Tawang Monastery & Bumla Pass visit','Madhuri Lake & Nuranang Falls','ILP Inner Line Permit included','Mechanic support vehicle throughout','Suitable for intermediate+ bikers']
+  },
+  meghalaya:{
+    title:'Meghalaya – Abode of Clouds',subtitle:'Meghalaya · 5 Nights · 6 Days',
+    img:'https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1400&q=80',
+    price:'₹17,500 <small>/ person</small>',
+    meta:'🌙 5 Nights · 6 Days &nbsp;|&nbsp; 👥 Min 4 &nbsp;|&nbsp; 🌉 Root Bridge Trek Included',
+    desc:'Meghalaya is where clouds live on earth. Scotland of the East — this magical state rewards travellers with Dawki\'s impossibly clear green river, the living root bridges of Nongriat village, Mawlynnong (Asia\'s cleanest village), and the thundering waterfalls of Cherrapunji, once the wettest place on earth. Shillong\'s colonial-era charm and rock music culture make it a destination unlike any other.',
+    imgs:['https://images.unsplash.com/photo-1501854140801-50d01698950b?w=800&q=80','https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80','https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80'],
+    itinerary:[
+      {day:'Day 1',title:'Guwahati to Shillong',desc:'Arrive in Shillong — Rock capital of India. Explore Police Bazaar, Ward\'s Lake, and Don Bosco Museum.'},
+      {day:'Day 2',title:'Cherrapunji (Sohra) – Waterfalls Day',desc:'Nohkalikai Falls (India\'s tallest), Mawsmai Caves, Eco Park, Seven Sisters Falls viewpoint.'},
+      {day:'Day 3',title:'Double Decker Root Bridge Trek',desc:'Trek down to Nongriat village to see the world-famous Double Decker Living Root Bridge. Full-day trek (moderate difficulty).'},
+      {day:'Day 4',title:'Mawlynnong & Dawki',desc:'Asia\'s cleanest village — Mawlynnong. Then Dawki for boating on the crystal-clear Umngot River (Indo-Bangladesh border).'},
+      {day:'Day 5',title:'Mawphlang Sacred Grove & Local Culture',desc:'Ancient sacred forest of Mawphlang, Smit village cultural visit, local Khasi cuisine experience.'},
+      {day:'Day 6',title:'Shillong to Guwahati – Departure',desc:'Morning leisure in Shillong, drive back to Guwahati for departure.'},
+    ],
+    highlights:['Double Decker Living Root Bridge trek','Dawki Umngot River boating','Nohkalikai Falls – India\'s tallest','Mawlynnong – Asia\'s Cleanest Village','Mawphlang Sacred Forest','Seven Sisters Falls viewpoint','Mawsmai Limestone Caves','Authentic Khasi cuisine experiences']
+  }
+};
+
+function showPage(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const el=document.getElementById('nav-'+(page==='enquiry'?'enquiry-link':page));
+  if(el)el.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showDetail(key){
+  const d=destinations[key];
+  document.getElementById('detail-title').textContent=d.title;
+  document.getElementById('detail-subtitle').textContent=d.subtitle;
+  document.getElementById('detail-img').src=d.img;
+  document.getElementById('detail-price').innerHTML=d.price;
+  document.getElementById('detail-meta-box').innerHTML=d.meta;
+  document.getElementById('detail-desc').textContent=d.desc;
+  const ig=document.getElementById('detail-imgs');
+  ig.innerHTML=d.imgs.map(s=>`<img src="${s}" alt="">`).join('');
+  const itin=document.getElementById('detail-itinerary');
+  itin.innerHTML=d.itinerary.map(i=>`<div class="itinerary-day"><h4>${i.day} — ${i.title}</h4><p>${i.desc}</p></div>`).join('');
+  const hl=document.getElementById('detail-highlights');
+  hl.innerHTML=d.highlights.map(h=>`<li>${h}</li>`).join('');
+  showPage('detail');
+}
+
+document.querySelectorAll('.gf-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+let currentSlide=0;
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+function goToSlide(n){
+  slides[currentSlide].classList.remove('active');dots[currentSlide].classList.remove('active');
+  currentSlide=n;
+  slides[currentSlide].classList.add('active');dots[currentSlide].classList.add('active');
+}
+setInterval(()=>goToSlide((currentSlide+1)%slides.length),5000);
+
+function submitEnquiry(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('.btn-submit');
+  btn.textContent='✓ Sent! We\'ll WhatsApp you within 24 hours.';
+  btn.style.background='#16a34a';
+  setTimeout(()=>{btn.textContent='Send My Enquiry 🏔️';btn.style.background='';},5000);
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});
+},{threshold:0.08});
+document.querySelectorAll('.dest-card,.pkg-row,.value-card,.team-card,.gal-item,.itinerary-day').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.55s ease, transform 0.55s ease, box-shadow 0.32s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>
